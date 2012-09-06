@@ -1,0 +1,137 @@
+/*************************************************************************
+#                                                                        #
+#       Automaton Framework re-implemented in Golang                     #
+#                                                                        #
+#       Automation & Auditing Toolkit                                    #
+#                                                                        #
+#       Copyright (C) 2010 by Vamegh Hedayati                            #
+#       Golang re-implementation Copyright (C) 2012 by Vamegh Hedayati   #
+#       vamegh@gmail.com                                                 #
+#                                                                        #
+#       Please see Copying for License Information                       #
+#                               GNU/GPL v2 2010 / 2012                   #
+*************************************************************************/
+package logger
+
+/***********************************************
+#  Libraries / Modules
+###
+#  These are the libraries / modules
+#  necessary to compile this program
+##
+***********************************************/
+
+import (
+  "fmt"
+  cls "automaton/libs/term"
+  "time"
+)
+
+/***********************************************
+#  Sub-Routines / Functions Definitions
+###
+# This is the actual Body
+##
+***********************************************/
+
+var countD, countE int
+func DebugL (message *string, loglev byte, caller *string)   {
+  t := time.Now().UTC()
+  date := t.Format("2006_01_02-15:04:05")
+  /*
+    //fmt.Println(cls.FRD+"\n\nYou Have reached this position\n\n"+cls.RST)
+    //t := time.UTC()
+    //date.Format("20120102010101")
+    //fmt.Println("\n\nDate currently : ",date)
+    //fmt.Println(t.Format("20060102150405"))
+    //fmt.Println(date)
+    //+ logtype,"loglev is",loglev,"message is",*message,"caller is",*caller+cls.RST)
+  */
+  switch *logtype {
+    case "debug":
+      switch *loglev {
+        case 1:
+          fmt.Println ("\n",cls.FGN+date,"::",cls.FBU,"DEBUG ::",
+                        cls.FYE,countD,*caller,cls.FBU,"::",*message,cls.RST,"\n")
+        case 2:
+          fmt.Println ("\n",cls.FGN+date,"::",cls.FBU,"DEBUG ::",
+                        cls.FYE,countD,*caller,cls.FBU,"::",*message,cls.RST,"\n")
+        case 3:
+          fmt.Println ("\n",cls.FGN+date,"::",cls.FBU,"DEBUG ::",
+                        cls.FYE,countD,*caller,cls.FBU,"::",*message,cls.RST,"\n")
+      }
+    case "error":
+      switch *loglev {
+        case 1:
+          fmt.Println ("\n",cls.FGN+date,"::",cls.FRD,"ERROR ::",
+                        cls.FYE,countD,*caller,cls.FRD,"::",*message,cls.RST,"\n")
+        case 2:
+          fmt.Println ("\n",cls.FGN+date,"::",cls.FRD,"ERROR ::",
+                        cls.FYE,countD,*caller,cls.FRD,"::",*message,cls.RST,"\n")
+        case 3:
+          fmt.Println ("\n",cls.FGN+date,"::",cls.FRD,"ERROR ::",
+                        cls.FYE,countD,*caller,cls.FRD,"::",*message,cls.RST,"\n")
+      }
+    case "note":
+      switch *loglev {
+        case 1:
+          fmt.Println ("\n",cls.FGN,*message,cls.RST,"\n")
+        case 2:
+          fmt.Println ("\n",cls.FYE,*message,cls.RST,"\n")
+        case 3:
+          fmt.Println ("\n",cls.FBU,*message,cls.RST,"\n")
+      }
+  }
+  countD++
+  countE++
+}
+
+func ErrorL (message *error, logtype *string, loglev *int, caller *string)   {
+  t := time.Now().UTC()
+  date := t.Format("2006_01_02-15:04:05")
+
+  switch *logtype {
+    case "debug":
+      switch *loglev {
+        case 1:
+          fmt.Println ("\n",cls.FGN+date,"::",cls.FBU,"DEBUG ::",
+                        cls.FYE,countD,*caller,cls.FBU,"::",*message,cls.RST,"\n")
+        case 2:
+          fmt.Println ("\n",cls.FGN+date,"::",cls.FBU,"DEBUG ::",
+                        cls.FYE,countD,*caller,cls.FBU,"::",*message,cls.RST,"\n")
+        case 3:
+          fmt.Println ("\n",cls.FGN+date,"::",cls.FBU,"DEBUG ::",
+                        cls.FYE,countD,*caller,cls.FBU,"::",*message,cls.RST,"\n")
+      }
+    case "error":
+      switch *loglev {
+        case 1:
+          fmt.Println ("\n",cls.FGN+date,"::",cls.FRD,"ERROR ::",
+                        cls.FYE,countD,*caller,cls.FRD,"::",*message,cls.RST,"\n")
+        case 2:
+          fmt.Println ("\n",cls.FGN+date,"::",cls.FRD,"ERROR ::",
+                        cls.FYE,countD,*caller,cls.FRD,"::",*message,cls.RST,"\n")
+        case 3:
+          fmt.Println ("\n",cls.FGN+date,"::",cls.FRD,"ERROR ::",
+                        cls.FYE,countD,*caller,cls.FRD,"::",*message,cls.RST,"\n")
+      }
+    case "note":
+      switch *loglev {
+        case 1:
+          fmt.Println ("\n",cls.FGN,*message,cls.RST,"\n")
+        case 2:
+          fmt.Println ("\n",cls.FYE,*message,cls.RST,"\n")
+        case 3:
+          fmt.Println ("\n",cls.FBU,*message,cls.RST,"\n")
+      }
+  }
+  countD++
+  countE++
+}
+
+/************************************************************************
+
+/************************************************************************
+###                                 EOF                               ###
+*************************************************************************/
+

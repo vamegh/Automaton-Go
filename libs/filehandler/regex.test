@@ -1,0 +1,63 @@
+/* From :: http://notthesmartestguyintheroom.blogspot.co.uk/2009/11/first-program-in-googles-go.html
+/*
+
+package main
+
+import (
+ "os";
+ "fmt";
+ "regexp";
+ "strings";
+ "flag";
+)
+
+func main() {
+ flag.Parse();
+ args := flag.Args();
+ if len(args) != 2 {
+  fmt.Printf("usage: find dir regex\n  where:\n   dir is start directory\n   regex matches names of files to find\n");
+  os.Exit(1);
+ }
+ regex, err := regexp.Compile(args[1]);
+ if regex == nil {
+  fmt.Printf("can't compile \"%s\"\n", args[1]);
+  fmt.Printf("%s\n", err.String());
+  os.Exit(1);
+ }
+ n, err := find(regex, args[0]);
+ fmt.Printf("%d found\n", n);
+ if err != nil {
+  fmt.Printf("%s\n", err.String());
+ }
+}
+func find(regex *regexp.Regexp, name string) (i int, err os.Error) {
+ n := 0;
+ var error os.Error = nil;
+ file, err := os.Open(name, os.O_RDONLY, 0);
+ if file == nil {
+  return n, os.NewError(fmt.Sprintf("can't open file . err=%s\n", err.String()));
+ }
+ dirs, err := file.Readdir(-1);
+ file.Close();
+ if dirs == nil {
+  return n, os.NewError(fmt.Sprintf("can't Readdir for file %s\n", file.Name()));
+ }
+ for _, dir := range dirs {
+  array := []string{name, dir.Name};
+  newName := strings.Join(array, "/");
+  if dir.IsDirectory() {
+   found, err := find(regex, newName);
+   n += found;
+   if (err != nil) {
+    error = err;
+   }
+  }
+  else {
+   if regex.MatchString(dir.Name) {
+    fmt.Printf("  %s\n", newName);
+    n += 1;
+   }
+  }
+ }
+ return n, error;
+}

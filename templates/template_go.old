@@ -1,0 +1,57 @@
+/*************************************************************************
+#                                                                        #
+#       Automaton Framework re-implemented in Golang                     #
+#                                                                        #
+#       Automation & Auditing Toolkit                                    #
+#                                                                        #
+#       Copyright (C) 2010 by Vamegh Hedayati                            #
+#       Golang re-implementation Copyright (C) 2012 by Vamegh Hedayati   #
+#       vamegh@gmail.com                                                 #
+#                                                                        #
+#       Please see Copying for License Information                       #
+#                               GNU/GPL v2 2010 / 2012                   #
+*************************************************************************/
+
+
+package ###PACKAGE_NAME###
+
+/***********************************************
+# External Libraries / Modules
+###
+#  These are external libraries /
+#  modules necessary to compile this program
+##
+***********************************************/
+
+import (
+  "fmt"
+  "os"
+)
+
+/***********************************************
+# Internal Libraries / Modules
+###
+#   These modules / libraries
+#   are part of the automaton framework
+##
+***********************************************/
+
+/***********************************************
+# Documentation Methods
+###
+#   Need to add relevant layouts necessary
+#   for this.
+##
+***********************************************/
+
+/***********************************************
+#  Sub-Routines / Functions Definitions
+###
+# This is the actual Body
+##
+***********************************************/
+
+
+/************************************************************************
+###                                 EOF                               ###
+*************************************************************************/

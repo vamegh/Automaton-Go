@@ -1,0 +1,40 @@
+/*************************************************************************
+#                                                                        #
+#       Automaton Framework re-implemented in Golang                     #
+#                                                                        #
+#       Automation & Auditing Toolkit                                    #
+#                                                                        #
+#       Copyright (C) 2010 by Vamegh Hedayati                            #
+#       Golang re-implementation Copyright (C) 2012 by Vamegh Hedayati   #
+#       vamegh@gmail.com                                                 #
+#                                                                        #
+#       Please see Copying for License Information                       #
+#                               GNU/GPL v2 2010 / 2012                   #
+*************************************************************************/
+package ###PACKAGE_NAME###
+
+/***********************************************
+#  Libraries / Modules
+###
+#  These are the libraries / modules
+#  necessary to compile this program
+##
+***********************************************/
+
+import (
+  "fmt"
+  "os"
+)
+
+/***********************************************
+#  Sub-Routines / Functions Definitions
+###
+# This is the actual Body
+##
+***********************************************/
+
+
+/************************************************************************
+###                                 EOF                               ###
+*************************************************************************/
+

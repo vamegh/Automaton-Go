@@ -1,0 +1,54 @@
+/*************************************************************************
+#                                                                        #
+#       Automaton Framework re-implemented in Golang                     #
+#                                                                        #
+#       Automation & Auditing Toolkit                                    #
+#                                                                        #
+#       Copyright (C) 2010 by Vamegh Hedayati                            #
+#       Golang re-implementation Copyright (C) 2012 by Vamegh Hedayati   #
+#       vamegh@gmail.com                                                 #
+#                                                                        #
+#       Please see Copying for License Information                       #
+#                               GNU/GPL v2 2010 / 2012                   #
+*************************************************************************/
+package libs
+
+/***********************************************
+#  Libraries / Modules
+###
+#  These are the libraries / modules
+#  necessary to compile this program
+##
+***********************************************/
+
+import (
+  "fmt"
+  "automaton/term"
+  "time"
+)
+
+/***********************************************
+#  Sub-Routines / Functions Definitions
+###
+# This is the actual Body
+##
+***********************************************/
+
+var countD, countE int
+func It (message *string, logtype *string, loglev *int, caller *string)   {
+  t := time.Now().UTC()
+  date := t.Format("2006_01_02-15:04:05")
+
+  switch *logtype {
+    case "note":
+      switch *loglev {
+        case 1:
+          fmt.Println ("\n",cls.FGN,date,*message,cls.RST,"\n")
+      }
+  }
+}
+
+/************************************************************************
+###                                 EOF                               ###
+*************************************************************************/
+
